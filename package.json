@@ -4,6 +4,10 @@
   "description": "Infinite scroll component for React in ES6",
   "main": "dist/InfiniteScroll.js",
   "jsnext:main": "src/InfiniteScroll.js",
+  "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/RoryGudka/react-infinite-scroller.git"
@@ -57,7 +61,7 @@
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2"
   },
-   "engines": {
+  "engines": {
     "node": "> 18"
   }
 }

@@ -24,6 +24,7 @@ Infinitely load a grid or list of items in React. This component allows you to c
 ```
 npm install react-infinite-scroller --save
 ```
+
 ```
 yarn add react-infinite-scroller
 ```
@@ -51,15 +52,19 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 ```js
 <div style="height:700px;overflow:auto;">
-    <InfiniteScroll
-        pageStart={0}
-        loadMore={loadFunc}
-        hasMore={true || false}
-        loader={<div className="loader" key={0}>Loading ...</div>}
-        useWindow={false}
-    >
-        {items}
-    </InfiniteScroll>
+  <InfiniteScroll
+    pageStart={0}
+    loadMore={loadFunc}
+    hasMore={true || false}
+    loader={
+      <div className="loader" key={0}>
+        Loading ...
+      </div>
+    }
+    useWindow={false}
+  >
+    {items}
+  </InfiniteScroll>
 </div>
 ```
 
@@ -68,19 +73,26 @@ import InfiniteScroll from 'react-infinite-scroller';
 You can define a custom `parentNode` element to base the scroll calulations on.
 
 ```js
-<div style="height:700px;overflow:auto;" ref={(ref) => this.scrollParentRef = ref}>
-    <div>
-        <InfiniteScroll
-            pageStart={0}
-            loadMore={loadFunc}
-            hasMore={true || false}
-            loader={<div className="loader" key={0}>Loading ...</div>}
-            useWindow={false}
-            getScrollParent={() => this.scrollParentRef}
-        >
-            {items}
-        </InfiniteScroll>
-    </div>
+<div
+  style="height:700px;overflow:auto;"
+  ref={(ref) => (this.scrollParentRef = ref)}
+>
+  <div>
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={loadFunc}
+      hasMore={true || false}
+      loader={
+        <div className="loader" key={0}>
+          Loading ...
+        </div>
+      }
+      useWindow={false}
+      getScrollParent={() => this.scrollParentRef}
+    >
+      {items}
+    </InfiniteScroll>
+  </div>
 </div>
 ```
 
@@ -88,7 +100,7 @@ You can define a custom `parentNode` element to base the scroll calulations on.
 
 | Name              | Required | Type         | Default   | Description                                                                                                                                                                         |
 | :---------------- | :------- | :----------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `children`        | Yes      | `Node`   |           | Anything that can be rendered (same as PropType's Node) |
+| `children`        | Yes      | `Node`       |           | Anything that can be rendered (same as PropType's Node)                                                                                                                             |
 | `loadMore`        | Yes      | `Function`   |           | A callback when more items are requested by the user. Receives a single parameter specifying the page to load e.g. `function handleLoadMore(page) { /* load more items here */ }` } |
 | `element`         |          | `Component`  | `'div'`   | Name of the element that the component should render as.                                                                                                                            |
 | `hasMore`         |          | `Boolean`    | `false`   | Whether there are more items to be loaded. Event listeners are removed if `false`.                                                                                                  |
